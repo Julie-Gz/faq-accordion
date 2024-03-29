@@ -15,7 +15,7 @@
     --headerMargin: 2em;
     --margin: 1em;
     --padding: 1em 0.5em;
-    --mainPadding: 1em;
+    --mainPadding: clamp(1em,3vw,2em);
 }
 
 @font-face {
@@ -41,8 +41,10 @@ html{
 
 body{
     min-height: 100svh;
-    display: grid;
-    place-items: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
     background-color: var(--Lightpink);
     background-image: url("./assets/images/background-pattern-mobile.svg");
     background-repeat: no-repeat;
@@ -51,8 +53,7 @@ body{
 }
 
 main{
-    width: clamp(280px, 45vw, 700px);
-    aspect-ratio: 4 / 3;
+    width: clamp(280px, 45vw, 600px);
     background-color: var(--White);
     border-radius: 15px;
     padding: var(--mainPadding)
@@ -73,8 +74,14 @@ img{
     display: block;
 }
 
+.title{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
 .star{
-    width: var(--h1);
+    width: calc(var(--h1) - 3px);
 }
 
 .accordian-container:not(:last-child){
@@ -99,8 +106,18 @@ img{
     cursor: pointer;
 }
 
+.accordion__question{
+    transition: color 0.2s ease-in;
+}
+
+.accordion__question:hover{
+    color: var(--purple)
+}
+
 .accordion__answer{
+    margin-top: var(--headerMargin);
     font-size: var(--answer);
+    color: var(--Grayishpurple);
 }
 
 /* Attribution */
@@ -114,7 +131,7 @@ img{
 }
 
 /* Media Query */
-@media screen and (min-width: 729px) {
+@media screen and (min-width: 769px) {
     body{
         background-image: url("./assets/images/background-pattern-desktop.svg");
     }
