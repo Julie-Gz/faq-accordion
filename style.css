@@ -1,0 +1,121 @@
+:root{
+    /* Colors */
+    --White: hsl(0, 0%, 100%);
+    --Lightpink: hsl(275, 100%, 97%);
+    --Grayishpurple: hsl(292, 16%, 49%);
+    --Darkpurple: hsl(292, 42%, 14%);
+    --purple: rgb(173, 40, 235);
+
+    /* Font Size */
+    --h1: clamp(1.5rem,10vw,2.5rem);
+    --question: 1rem;
+    --answer: 0.9rem;
+
+    /* Margin and padding */
+    --headerMargin: 2em;
+    --margin: 1em;
+    --padding: 1em 0.5em;
+    --mainPadding: 1em;
+}
+
+@font-face {
+    font-family: "worksansItalic";
+    src: url("./assets/fonts/WorkSans-Italic-VariableFont_wght.ttf"), format("ttf");
+}
+
+@font-face {
+    font-family: "worksans";
+    src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf"), format("ttf");
+}
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+    font-family: "worksans";
+}
+
+body{
+    min-height: 100svh;
+    display: grid;
+    place-items: center; 
+    background-color: var(--Lightpink);
+    background-image: url("./assets/images/background-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+}
+
+main{
+    width: clamp(280px, 45vw, 700px);
+    aspect-ratio: 4 / 3;
+    background-color: var(--White);
+    border-radius: 15px;
+    padding: var(--mainPadding)
+}
+
+h1{
+    font-size: var(--h1);
+    font-weight: 800;
+}
+
+p{
+    line-height: 1.5;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.star{
+    width: var(--h1);
+}
+
+.accordian-container:not(:last-child){
+    border-bottom: 1px solid var(--Lightpink);
+}
+
+.accordian-container{
+    padding: var(--padding);
+}
+
+.btn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: var(--question);
+    text-align: left;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.accordion__answer{
+    font-size: var(--answer);
+}
+
+/* Attribution */
+.attribution { 
+    margin-top: 2rem;
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+/* Media Query */
+@media screen and (min-width: 729px) {
+    body{
+        background-image: url("./assets/images/background-pattern-desktop.svg");
+    }
+}
